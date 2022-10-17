@@ -13,11 +13,23 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function getSeason( date ) {
   if ( !date ) return 'Unable to determine the time of year!';
-  if ( !date.getMonth || Object.keys(date).length > 0 ) throw new Error('Invalid date!');
-  const seasons = [ 'winter', 'spring', 'summer', 'autumn' ];
+  if ( !date.getMonth || Object.keys( date ).length > 0 ) throw new Error( 'Invalid date!' );
+  const seasons = [ 
+                    'winter',
+                    'winter',
+                    'spring',
+                    'spring',
+                    'spring',
+                    'summer',
+                    'summer',
+                    'summer',
+                    'autumn',
+                    'autumn',
+                    'autumn',
+                    'winter'
+                  ];
   const month = date.getMonth();
-  const index = Math.floor( ( ( month === 11 ? 0 : month + 1 ) / 3 ) );
-  return seasons[ index ];
+  return seasons[ month ];
 }
 
 module.exports = {
